@@ -1,0 +1,38 @@
+{
+	"PORT": 4000,
+	"server_url": "http://localhost:3000",
+	"booru": {
+		"tag_limit": 20,
+		"tag_order": "count",
+		"post_limit": 20,
+		"list": ["yandere", "gelbooru", "danbooru"],
+		"yandere": {
+			"posts": {
+				"list_url": "https://yande.re/post.json"
+			},
+			"tags": {
+				"list_url": "https://yande.re/tag.json"
+			},
+			"dl_location": "F:\\ANIME\\Images\\yandere"
+		},
+		"gelbooru": {
+			"posts": {
+				"list_url": "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1"
+			},
+			"tags": {
+				"list_url": "https://gelbooru.com/index.php?page=dapi&s=tag&q=index&json=1"
+			},
+			"dl_location": "F:\\ANIME\\Images\\gelbooru"
+		},
+		"danbooru": {
+			"posts": {
+				"list_url": "https://danbooru.donmai.us/posts.json"
+			},
+			"tags": {
+				"list_url": "https://danbooru.donmai.us/tags.json"
+			},
+			"dl_location": "F:\\ANIME\\Images\\danbooru"
+		}
+	},
+	"logs_location": "F:\\ANIME\\Images"
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Teko:wght@300;400;500;600;700&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$teko: 'Teko', sans-serif;
+
+$body: $poppins;
+$title: $teko;
+
+@mixin font($fs, $ff: $body, $c: $text, $fw: normal, $ls: normal, $lh: normal, $tt: none) {
+  font-family: $ff;
+  font-size: $fs;  
+  color: $c;
+  font-weight: $fw;
+  letter-spacing: $ls;
+  line-height: $lh;
+  text-transform: $tt;
+}

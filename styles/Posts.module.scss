@@ -1,0 +1,22 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.container {
+	max-height: 100vh;
+	overflow-y: scroll;
+}
+
+.grid {
+	display: flex;
+	padding: 5px;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	margin-top: 80px;
+	margin-bottom: 40px;
+}
+
+

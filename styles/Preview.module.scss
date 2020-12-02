@@ -1,0 +1,98 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.header {
+	height: 40px;
+	width: 100vw;
+	background-color: $bg-elevated;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.logo,
+	span {
+		@include font($fs: 2rem, $ff: $title, $ls: 0.025em, $lh: 1);
+	}
+	.logo {
+    margin-left: 10px;
+    span {
+      color: $extra;
+    }
+	}
+}
+
+.container {
+	background-color: $bg;
+	width: 100vw;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	img {
+		height: 50vh;
+		width: 100vw;
+		background-color: $bg;
+		color: $bg;
+		display: block;
+		overflow: hidden;
+		object-fit: contain;
+		margin-bottom: 20px;
+	}
+
+	.buttons {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		border-bottom: 2px solid $bg-elevated;
+		button {
+			width: fit-content;
+			padding: 10px;
+			padding-right: 15px;
+			background-color: $bg-elevated;
+			margin-bottom: 20px;
+			@include font($fs: 1.5rem, $ff: $title, $ls: 0.025em, $tt: lowercase);
+			border-radius: 5px;
+			svg {
+				margin-right: 10px;
+				color: $extra;
+			}
+		}
+	}
+
+	.tags {
+		padding: 50px 5px;
+		overflow: scroll;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.id {
+		@include font($fs: 1.75rem, $ff: $title, $ls: 0.025em, $lh: 1);
+		text-align: end;
+		padding: 10px;
+		border-bottom: 2px solid $bg-elevated;
+		span {
+			margin-left: 5px;
+			@include font($fs: 1.75rem, $c: $extra, $ff: $title, $ls: 0.1em, $lh: 1);
+		}
+	}
+
+	.details {
+		padding: 25px 10px;
+		background-color: $bg-elevated;
+		p,
+		span {
+			font-size: 0.875rem;
+			font-weight: 600;
+		}
+		p {
+			margin-bottom: 10px;
+		}
+		p span {
+			color: $extra;
+			margin-right: 5px;
+		}
+	}
+}

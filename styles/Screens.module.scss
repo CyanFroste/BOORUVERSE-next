@@ -1,0 +1,142 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.text {
+	@include font($fs: 2rem, $ff: $title);
+	margin-bottom: 20px;
+}
+
+.loading.full {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+
+.loading {
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: $bg;
+
+	.spinner {
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		z-index: 10;
+		position: relative;
+		&::after {
+			position: absolute;		
+      z-index: -1;
+      top: 0;
+      left: 0;
+			content: "";
+			display: block;
+			height: 40px;
+			width: 40px;
+      border-radius: 50%;
+			background-color: $secondary;
+			animation: pulseL ease-out infinite 1s forwards;
+		}
+
+		svg {
+			width: 40px;
+			height: 40px;
+      color: $secondary;
+		}
+  }
+
+	@keyframes pulseL {
+		0% {
+			transform: scale(0);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(2.5);
+			opacity: 0;
+		}
+	}
+}
+
+.error.full {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+
+.error {
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: $bg;
+
+	.spinner {
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		z-index: 10;
+		background-color: $secondary;
+		position: relative;
+		&::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			content: "";
+			display: block;
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			background-color: $secondary;
+			animation: pulseE ease-in-out infinite 1s forwards;
+		}
+
+		svg {
+			width: 40px;
+			height: 40px;
+			color: $bg;
+		}
+	}
+
+	.error-screen-options {
+		margin-top: 200px;
+		.home-button,
+		button {
+			background-color: $secondary;
+			color: $bg;
+			padding: 0.625em;
+			display: flex;
+			align-items: center;
+			border-radius: 5px;
+			margin-top: 1rem;
+		}
+		.home-button {
+			margin-top: 0;
+		}
+	}
+
+	@keyframes pulseE {
+		0% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(2.5);
+			opacity: 0;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $bg-elevated;
+}
+
+.top {
+	position: fixed;
+	top: 0;
+	z-index: 10;
+
+	.logo,
+	span {
+		@include font($fs: 2rem, $ff: $title, $ls: 0.025em, $lh: 1);
+	}
+	.logo {
+    margin-left: 10px;
+	}
+
+	.main {
+		width: 100vw;
+		height: 40px;
+		background-color: $secondary;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.shade {
+		width: 100vw;
+		height: 40px;
+		background-color: $bg-elevated;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.qdm {
+      width: fit-content;
+      height: 20px;
+      justify-self: flex-start;
+      margin-right: auto;
+      margin-left: 10px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-weight: 600;
+      font-size: .75rem;
+			background-color: $secondary;
+    }
+    .qdm.active {
+      background-color: $extra;
+      color: $bg;
+    }
+
+		.pageControl {
+			display: flex;
+			align-items: center;
+			.pageControlToggle {
+				@include font($fs: 1.875rem, $ff: $title, $c: $text, $lh: 1.875rem);
+			}
+
+			.pageDisplay {
+				padding: 0 10px;
+				margin: 0 10px;
+				border-radius: 5px;
+				height: 30px;
+				display: flex;
+				font-weight: 600;
+				align-items: center;
+				background-color: $bg;
+			}
+
+			.pageChanger {
+				display: flex;
+				align-items: center;
+				svg {
+					color: $text;
+				}
+				input {
+					background-color: $bg;
+					border: 0;
+					height: 30px;
+					width: 60px;
+					border-radius: 5px;
+					margin-left: 10px;
+					padding: 0 10px;
+					text-align: center;
+					caret-color: $primary;
+				}
+			}
+		}
+	}
+}

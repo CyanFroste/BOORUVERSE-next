@@ -1,0 +1,159 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.select {
+	position: relative;
+	margin-left: 10px;
+	.dropdownList {
+		flex-direction: column;
+		position: absolute;
+		padding: 10px;
+		background-color: $bg-elevated;
+		top: 40px;
+		left: 5px;
+		z-index: 1;
+		border-radius: 5px;
+		li {
+			padding: 10px 5px;
+			color: $text;
+			a {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.dropdownToggle {
+		height: 30px;
+		display: flex;
+		width: fit-content;
+		cursor: pointer;
+		text-transform: lowercase;
+		align-items: center;
+		padding-left: 10px;
+		font-weight: 600;
+		background-color: $bg;
+		border-radius: 5px;
+	}
+}
+
+.menuBackdrop {
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 70;
+	background-color: rgba($color: $bg, $alpha: 0.7);
+
+	.menu {
+		width: 80%;
+		height: 100%;
+		padding: 0 10px;
+		display: flex;
+		flex-direction: column;
+		background-color: $bg;
+
+		.booru {
+			text-transform: lowercase;
+			padding: 10px 0;
+			border-bottom: 2px solid $bg-elevated;
+			@include font($fs: 1.75rem, $ff: $title, $ls: 0.025em);
+		}
+		.title {
+			margin: 10px 0;
+			display: flex;
+			padding: 5px;
+			align-items: center;
+			p {
+				font-weight: 600;
+				margin-left: 10px;
+			}
+		}
+
+		.activeFilters {
+			display: flex;
+			flex-wrap: wrap;
+			max-height: 100px;
+			overflow: scroll;
+			p {
+				font-size: 0.875rem;
+				padding: 5px 7px;
+				margin: 5px;
+				border-radius: 4px;
+				font-weight: 600;
+				background-color: $extra;
+				color: $bg-elevated;
+			}
+		}
+
+		.copyrights {
+			justify-self: flex-end;
+			margin-top: auto;
+			span {
+				display: block;
+				width: 100%;
+				@include font($fs: 1.5rem, $ff: $title);
+				padding: 5px;
+				border-top: 2px solid $bg-elevated;
+			}
+		}
+	}
+}
+
+.tag {
+	padding: 7px;
+	display: inline-block;
+	background-color: $bg-elevated;
+	margin: 5px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+
+	.countBadge {
+		margin-left: 10px;
+		background-color: $secondary;
+		padding: 2px 5px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		border-radius: 2px;
+	}
+}
+
+.tag.selected {
+	background-color: $text;
+	color: $bg;
+}
+
+.card {
+	position: relative;
+	margin: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: $bg-elevated;
+	img {
+		width: calc(50vw - 15px);
+		border-radius: 5px;
+		display: block;
+		overflow: hidden;
+		min-height: 100px;
+		color: $bg-elevated;
+	}
+	.badge {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		padding: 5px;
+		border-radius: 5px;
+		background-color: rgba($color: $bg, $alpha: 0.7);
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: $text;
+	}
+	.details {
+		padding: 5px;
+		font-size: 0.75rem;
+    font-weight: 600;
+    text-align: end;
+	}
+}

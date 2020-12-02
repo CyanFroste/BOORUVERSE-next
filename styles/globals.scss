@@ -1,0 +1,64 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $bg;
+}
+
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+
+button {
+	outline: none;
+	background: none;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+p,
+a,
+img,
+input,
+li,
+button,
+span,
+div {
+	@include font($fs: 1rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include font($fs: 2rem, $ff: $title, $ls: 0.025em);
+}
+
+svg {
+	color: $text;
+}
+
+button {
+	height: 40px;
+	width: 40px;
+}

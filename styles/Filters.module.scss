@@ -1,0 +1,155 @@
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
+
+.filtersBackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba($color: $bg, $alpha: 0.7);
+}
+
+.filters::before {
+	content: "";
+	display: block;
+	height: 5px;
+	background-color: $secondary;
+}
+.filters {
+	width: calc(100vw - 40px);
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	background-color: $bg;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		height: 100%;
+		background-color: $bg;
+		padding: 10px;
+	}
+
+	.title {
+		margin: 1rem 0;
+		display: flex;
+		align-items: center;
+		p {
+			font-weight: 600;
+			margin-left: 5px;
+		}
+	}
+
+	.tags {
+		border-radius: 5px;
+		height: 210px;
+		max-height: 210px;
+		margin-bottom: 20px;
+		overflow: scroll;
+
+		.tagsWrap {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+	.invertTagSelection {
+		padding: 0;
+		display: flex;
+		margin-left: auto;
+		align-items: center;
+		width: fit-content;
+		span {
+			margin-left: 5px;
+			font-weight: 600;
+		}
+	}
+
+	input {
+		width: 100%;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		background-color: $bg-elevated;
+		padding: 10px;
+	}
+
+	.search {
+		position: relative;
+		input {
+			padding-right: 40px;
+		}
+	}
+
+	.clearSearch {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 0.5rem;
+	}
+
+	.limitId {
+		position: relative;
+		input {
+			padding-left: 40px;
+		}
+		button {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 0.5rem;
+		}
+	}
+
+	.active {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 60px;
+		max-height: 60px;
+		overflow-y: scroll;
+		margin-bottom: 10px;
+		p {
+			word-wrap: break-word;
+			font-weight: 600;
+			line-height: 1.5;
+			text-align: center;
+		}
+	}
+
+	.controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 auto;
+		width: 100%;
+		background-color: $bg-elevated;
+		p {
+			@include font($fs: 1rem, $fw: 600);
+		}
+		button {
+			width: 40px;
+			color: $bg;
+		}
+	}
+
+	.bottom {
+		background-color: $secondary;
+		margin-top: auto;
+		justify-self: flex-end;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		button {
+			color: $bg;
+			width: 40px;
+		}
+	}
+}
