@@ -26,4 +26,4 @@ APIs used :
   - Custom server abandoned
   - Socket.io not working as intended 
 - Next.js' Server Side Rendering
-- Tweak server settings using [config.json]('config.json')
+- Tweak server settings using [config.json]('./config.json')
