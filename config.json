@@ -4,7 +4,7 @@
 	"booru": {
 		"tag_limit": 20,
 		"tag_order": "count",
-		"post_limit": 20,
+		"post_limit": 100,
 		"list": ["yandere", "gelbooru", "danbooru"],
 		"yandere": {
 			"posts": {
