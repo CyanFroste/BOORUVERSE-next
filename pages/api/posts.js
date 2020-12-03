@@ -27,7 +27,7 @@ export default async (req, res) => {
 };
 
 // download to server pc
-let downloads = { downloading: [], downloaded: [] };
+const downloads = { downloading: [], downloaded: [] };
 async function download(booru, url, fileName, size) {
 	//
 	let fileId = `${booru} ${fileName.split(" ")[1]}`;
@@ -71,13 +71,16 @@ async function download(booru, url, fileName, size) {
 			}
 		);
 
-		// push fileId into downloads(list)
+		// push file id into downloads(list)
 		downloads.downloading.push(fileId);
+
 		// log download queue onto a file
 		fs.writeFile(
 			path.resolve(config.logs_location, "DL_QUEUE.json"),
 			JSON.stringify(downloads),
-			(err) => err && console.error(err)
+			(err) => {
+				if (err) console.error(err);
+			}
 		);
 
 		console.log("\n---- Downloads ----\n", downloads, "\n");
@@ -96,12 +99,14 @@ async function download(booru, url, fileName, size) {
 			// add file id to downloaded
 			downloads.downloaded.push(fileId);
 			console.log("\n---- Downloads ----\n", downloads, "\n");
-
+		
 			// log download queue onto a file
 			fs.writeFile(
 				path.resolve(config.logs_location, "DL_QUEUE.json"),
 				JSON.stringify(downloads),
-				(err) => err && console.error(err)
+				(err) => {
+					if (err) console.error(err);
+				}
 			);
 		});
 
@@ -113,12 +118,14 @@ async function download(booru, url, fileName, size) {
 				(dl) => dl !== fileId
 			);
 			console.log("\n---- Downloads ----\n", downloads, "\n");
-
+			
 			// log download queue onto a file
 			fs.writeFile(
 				path.resolve(config.logs_location, "DL_QUEUE.json"),
 				JSON.stringify(downloads),
-				(err) => err && console.error(err)
+				(err) => {
+					if (err) console.error(err);
+				}
 			);
 			throw err;
 		});

@@ -1,8 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import Head from "next/head";
 import Card from "../../components/Card";
-import config from "../../config.json";
 import styles from "../../styles/Posts.module.scss";
 import Bottombar from "../../components/Bottombar";
 import Topbar from "../../components/Topbar";
@@ -20,7 +19,9 @@ const Posts = ({ posts }) => {
 
 	// scroll position
 	const container = useRef();
-	const { scrollPos, setScrollPos, qdm, toggleQdm } = useContext(CommonContext);
+	const { scrollPos, setScrollPos, qdm, toggleQdm, downloads } = useContext(
+		CommonContext
+	);
 
 	useEffect(() => {
 		container.current.scrollTo(0, scrollPos);
@@ -30,12 +31,12 @@ const Posts = ({ posts }) => {
 	// handlers
 	const postClick = (post) => {
 		if (qdm) {
-			download(booru, post.originalUrl, post.originalSize || 0, post).then(
-				(data) => {
+			download(booru, post.originalUrl, post.originalSize || 0, post)
+				.then((data) => {
 					// toast
 					console.log(data);
-				}
-			);
+				})
+				.catch((err) => console.error(err));
 		} else {
 			setScrollPos(container.current.scrollTop);
 		}
@@ -100,6 +101,9 @@ const Posts = ({ posts }) => {
 
 	return (
 		<>
+			<Head>
+				<title>BOORUVERSE | {booru}</title>
+			</Head>
 			{loading ? (
 				<Loading full={true} />
 			) : (

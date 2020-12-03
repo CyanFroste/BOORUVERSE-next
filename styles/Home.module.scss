@@ -1,17 +1,66 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+@import "./common/colors.scss";
+@import "./common/typography.scss";
+@import "./common/variables.scss";
 
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.container {
+	width: 100vw;
+  height: 100vh;
+  padding: 50px 20px;
+	display: flex;
+	flex-direction: column;
   justify-content: center;
   align-items: center;
+	text-align: center;
+
+	h1 {
+		@include font($fs: 3rem, $ff: $title);
+	}
+
+	h2 {
+		@include font($fs: 1.5rem, $ff: $title, $c: $secondary);
+		span {
+			@include font($fs: 1.5rem, $ff: $title);
+		}
+	}
+	.ver {
+		@include font($fs: 1rem, $ff: $title);
+		margin-bottom: 20px;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+    overflow: scroll;
+    margin: 20px;
+    width: 200px;
+    max-height: 400px;
+
+		a {
+      padding: 5px 10px;
+      padding-left: 15px;
+      margin: 10px;
+      width: 100%;
+			border-radius: 5px;
+			background-color: $secondary;
+			@include font($fs: 1.5rem, $ff: $title);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+
+	.credits {
+		display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    justify-self: flex-end;
+		p {
+      @include font($fs: 1rem, $fw: 600);
+      margin-bottom: 5px;
+    } 
+    span {
+      font-size: .875rem;
+    }
+	}
 }

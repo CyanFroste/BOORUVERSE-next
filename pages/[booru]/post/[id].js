@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import config from "../../../config.json";
+import Head from "next/head";
 import styles from "../../../styles/Preview.module.scss";
 import Loading from "../../../components/screens/Loading";
 import Tag from "../../../components/Tag";
@@ -160,6 +160,11 @@ const Preview = ({ post }) => {
 
 	return (
 		<>
+			<Head>
+				<title>
+					BOORUVERSE | {booru} | {id}
+				</title>
+			</Head>
 			{loading ? (
 				<Loading full={true} />
 			) : (
@@ -216,6 +221,12 @@ export async function getServerSideProps(context) {
 	);
 
 	const data = await res.json();
+
+	if (data.length === 0) {
+		return {
+			notFound: true,
+		};
+	}
 
 	return {
 		props: { post: data[0] },
